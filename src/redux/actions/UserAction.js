@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../config/config"
 import { USER_DATA_ERROR, USER_DATA_LOADING, USER_DATA_SUCCESS } from "../types/UserTypes"
 
 
@@ -16,7 +17,7 @@ export const getUserByToken = (token) => async (dispatch,getState) =>{
             payload:initialState
         })
         
-        var res = await fetch("https://localhost:7147/api/Auth/me",{
+        var res = await fetch(`${BASE_URL}/Auth/me`,{
             method:"GET",
             headers:{
                 "Authorization":`Bearer ${token}`
